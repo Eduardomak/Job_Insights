@@ -29,7 +29,7 @@ def get_unique_job_types(path: str) -> List[str]:
     file_list = []
 
     for job in file:
-        if job["job_type"] != None:
+        if job["job_type"] is not None:
             file_list.append(job["job_type"])
     return set(file_list)
     """Checks all different job types and returns a list of them
@@ -50,8 +50,6 @@ def get_unique_job_types(path: str) -> List[str]:
 
 
 def filter_by_job_type(jobs: List[Dict], job_type: str) -> List[Dict]:
-    """if jobs["job_type"] == job_type:
-        return [job for job in jobs]"""
     return [job for job in jobs if job["job_type"] == job_type]
     """Filters a list of jobs by job_type
 
